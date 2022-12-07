@@ -12,13 +12,13 @@ def GetDatesWorked():
     todate = input("Enter End Date (mm/dd/yyyy: ")
     return fromdate, todate
 def GetHoursWorked():
-    hours = float(input('Enter amount of hours worked:  '))
+    hours = float(input("Enter amount of hours worked:  "))
     return hours
 def GetHourlyRate():
-    hourlyrate = float(input ("Enter hourly rate: "))
+    hourlyrate = float(input("Enter hourly rate: "))
     return hourlyrate
 def GetTaxRate():
-    taxrate = float(input ("Enter tax rate: "))
+    taxrate = float(input("Enter tax rate: "))
     return taxrate
 def CalcTaxAndNetPay(hours, hourlyrate, taxrate):
     grosspay = hours * hourlyrate
@@ -54,7 +54,7 @@ def printinfo(DetailsPrinted):
         #write the line of code to remove the carriage return from the end of the record read from the file
         EmpDetail.replace("\r", "")
         #write the line of code to split the record read in on the pipe delimiter and assign it to EmpList
-        Emplist = EmpDetail.split()
+        EmpList = EmpDetail.split("|")
         fromdate = EmpList[0]
         if (str(rundate).upper() != "ALL"):
             checkdate = datetime.strptime(fromdate, "%m/%d/%Y")
@@ -113,9 +113,7 @@ if __name__ == "__main__":
         # write the line of code that will concatenate fromdate, todate, empname, hours, hourlyrate, and taxrate. Pipe delimit each value and add a carriage return to the end of the line
         # and assign the line to EmpDetail
         
-        EmpDetail = [fromdate, "|" + todate, "|" + empname, "|" +str(hours), "|" + str(hourlyrate), "|" + str(taxrate)] 
-        for line in EmpDetail:
-            line.split("|")
+        EmpDetail = fromdate + "|" + todate + "|" + empname + "|" + str(hours) + "|" + str(hourlyrate) + "|" + str(taxrate)+ "\n"
         
          
  
