@@ -48,11 +48,11 @@ def printinfo(DetailsPrinted):
             continue  # skip next if statement and re-start loop
     while True:
         # write the line of code to read a record from EmpFile and assign it to EmpDetail
-        EmpDetail = EmpFile.read()
+        EmpDetail = EmpFile.readline()
         if not EmpDetail:
             break
         #write the line of code to remove the carriage return from the end of the record read from the file
-        EmpDetail.replace("\r", "")
+        EmpDetail.replace("\n", "")
         #write the line of code to split the record read in on the pipe delimiter and assign it to EmpList
         EmpList = EmpDetail.split("|")
         fromdate = EmpList[0]
